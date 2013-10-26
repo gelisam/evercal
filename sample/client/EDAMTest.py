@@ -46,3 +46,12 @@ if not version_ok:
   exit(1)
 
 note_store = client.get_note_store()
+
+# get the default notebook
+default_notebook = None
+for notebook in note_store.listNotebooks():
+  if notebook.defaultNotebook:
+    default_notebook = notebook
+
+if not default_notebook:
+  raise "could not find the default notebook"
