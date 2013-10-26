@@ -1,3 +1,4 @@
+#!/usr/bin/python
 #
 # A simple Evernote API demo script that lists all notebooks in the user's
 # account and creates a simple test note in the default notebook.
