@@ -76,12 +76,14 @@ first = True
 print "["
 for note in noteList.notes:
   title = note.title
-  date = date.fromtimestamp(note.attributes.reminderTime / 1000)
-  url = "https://www.evernote.com/Home.action?#st=p&n=%s" % note.guid
-  thumbnail = "https://www.evernote.com/shard/%s/thm/note/%s" % (shardId, note.guid)
-  if first:
-    first = False
-  else:
-    print ','
-  print '{"title": "%s", "date": "%s", "url": "%s", "image": "%s"}' % (title, date, url, thumbnail)
+  timestamp = note.attributes.reminderTime
+  if timestamp:
+    date = date.fromtimestamp(timestamp / 1000)
+    url = "https://www.evernote.com/Home.action?#st=p&n=%s" % note.guid
+    thumbnail = "https://www.evernote.com/shard/%s/thm/note/%s" % (shardId, note.guid)
+    if first:
+      first = False
+    else:
+      print ','
+    print '{"title": "%s", "date": "%s", "url": "%s", "image": "%s"}' % (title, date, url, thumbnail)
 print "]"
