@@ -13,6 +13,10 @@ Go to your Evernote account and add a reminder date to a few notes. Also tag the
 
 ![](img/evernote.png?raw=true)
 
+Don't forget to assign a date to your reminder by clicking on the calendar icon.
+
+![](img/reminder-date.png?raw=true)
+
 Python Setup
 ---
 This project requires python 2.x, it won't work with Python 3. Tested on 2.6.1.
