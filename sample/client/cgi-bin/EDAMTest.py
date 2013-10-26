@@ -72,8 +72,8 @@ spec.includeAttributes = True
 noteList = note_store.findNotesMetadata(auth_token, filter, 0, 40, spec)
 
 print "Content-type: application/json\r\n"
-print "["
 first = True
+print "["
 for note in noteList.notes:
   date = date.fromtimestamp(note.attributes.reminderTime / 1000)
   url = "https://sandbox.evernote.com/Home.action?#st=p&n=%s" % note.guid
@@ -82,5 +82,5 @@ for note in noteList.notes:
     first = False
   else:
     print ','
-  print '{date: "%s", url: "%s", thumbnail: "%s"}' % (date, url, thumbnail)
+  print '{"date": "%s", "url": "%s", "thumbnail": "%s"}' % (date, url, thumbnail)
 print "]"
