@@ -39,11 +39,6 @@ def getUserShardId(authToken, userStore):
 # https://sandbox.evernote.com/api/DeveloperToken.action
 auth_token = open("dev_token", "r").read().rstrip()
 
-if auth_token == "your developer token":
-  print "Please fill in your developer token"
-  print "To get a developer token, visit " \
-    "https://sandbox.evernote.com/api/DeveloperToken.action"
-  exit(1)
 
 # Initial development is performed on our sandbox server. To use the production
 # service, change sandbox=False and replace your
