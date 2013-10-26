@@ -1,6 +1,8 @@
 Evercal
 ===
 
+![](img/evercal.png?raw=true)
+
 Evernote allows you to associate "reminder" dates with your notes. Evercal is a local python web app which uses those dates to display your notes in calendar form.
 
 This repository is still in a very rough state, and will probably stay that way. Worse is better!
@@ -8,6 +10,8 @@ This repository is still in a very rough state, and will probably stay that way.
 Evernote setup
 ---
 Go to your Evernote account and add a reminder date to a few notes. Also tag them with the tag "post", so that Evercal can find them. If you can also give them a short title and attach a picture, the calendar will look even better. Only one post per day!
+
+![](img/evernote.png?raw=true)
 
 Python Setup
 ---
