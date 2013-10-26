@@ -22,10 +22,10 @@ from evernote.api.client import EvernoteClient
 auth_token = open("dev_token", "r").read().rstrip()
 
 if auth_token == "your developer token":
-    print "Please fill in your developer token"
-    print "To get a developer token, visit " \
-        "https://sandbox.evernote.com/api/DeveloperToken.action"
-    exit(1)
+  print "Please fill in your developer token"
+  print "To get a developer token, visit " \
+    "https://sandbox.evernote.com/api/DeveloperToken.action"
+  exit(1)
 
 # Initial development is performed on our sandbox server. To use the production
 # service, change sandbox=False and replace your
@@ -36,14 +36,14 @@ client = EvernoteClient(token=auth_token, sandbox=True)
 user_store = client.get_user_store()
 
 version_ok = user_store.checkVersion(
-    "Evernote EDAMTest (Python)",
-    UserStoreConstants.EDAM_VERSION_MAJOR,
-    UserStoreConstants.EDAM_VERSION_MINOR
+  "Evernote EDAMTest (Python)",
+  UserStoreConstants.EDAM_VERSION_MAJOR,
+  UserStoreConstants.EDAM_VERSION_MINOR
 )
 print "Is my Evernote API version up to date? ", str(version_ok)
 print ""
 if not version_ok:
-    exit(1)
+  exit(1)
 
 note_store = client.get_note_store()
 
@@ -51,7 +51,7 @@ note_store = client.get_note_store()
 notebooks = note_store.listNotebooks()
 print "Found ", len(notebooks), " notebooks:"
 for notebook in notebooks:
-    print "  * ", notebook.name
+  print "  * ", notebook.name
 
 print
 print "Creating a new note in the default notebook"
@@ -93,7 +93,7 @@ hash_hex = binascii.hexlify(hash)
 # at http://dev.evernote.com/documentation/cloud/chapters/ENML.php
 note.content = '<?xml version="1.0" encoding="UTF-8"?>'
 note.content += '<!DOCTYPE en-note SYSTEM ' \
-    '"http://xml.evernote.com/pub/enml2.dtd">'
+  '"http://xml.evernote.com/pub/enml2.dtd">'
 note.content += '<en-note>Here is the Evernote logo:<br/>'
 note.content += '<en-media type="image/png" hash="' + hash_hex + '"/>'
 note.content += '</en-note>'
