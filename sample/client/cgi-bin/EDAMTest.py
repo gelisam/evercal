@@ -53,10 +53,8 @@ version_ok = user_store.checkVersion(
   UserStoreConstants.EDAM_VERSION_MAJOR,
   UserStoreConstants.EDAM_VERSION_MINOR
 )
-print "Is my Evernote API version up to date? ", str(version_ok)
-print ""
 if not version_ok:
-  exit(1)
+  raise "Evernote API too old"
 
 note_store = client.get_note_store()
 shardId = getUserShardId(auth_token, user_store)
