@@ -17,6 +17,23 @@ from evernote.edam.notestore import NoteStore
 
 from evernote.api.client import EvernoteClient
 
+
+def getUserShardId(authToken, userStore):
+  """
+  Get the User from userStore and return the user's shard ID
+  """
+  try:
+    user = userStore.getUser(authToken)
+  except (Types.EDAMUserException, Types.EDAMSystemException), e:
+    print "Exception while getting user's shardId:"
+    print type(e), e
+    return None
+  
+  if hasattr(user, 'shardId'):
+    return user.shardId
+  return None
+
+
 # Real applications authenticate with Evernote using OAuth, but for the
 # purpose of exploring the API, you can get a developer token that allows
 # you to access your own Evernote account. To get a developer token, visit
@@ -48,6 +65,7 @@ if not version_ok:
   exit(1)
 
 note_store = client.get_note_store()
+shardId = getUserShardId(auth_token, user_store)
 
 # we are interested in notes tagged as a "post"
 filter = NoteStore.NoteFilter()
@@ -64,3 +82,5 @@ for note in noteList.notes:
   timestamp = note.attributes.reminderTime
   date = date.fromtimestamp(timestamp / 1000)
   print "%s :: %s (%s)" % (note.guid, note.title, date)
+  thumbnail = "https://sandbox.evernote.com/shard/%s/thm/note/%s" % (shardId, note.guid)
+  print thumbnail
