@@ -12,6 +12,7 @@ import hashlib
 import binascii
 import evernote.edam.userstore.constants as UserStoreConstants
 import evernote.edam.type.ttypes as Types
+from evernote.edam.notestore import NoteStore
 
 from evernote.api.client import EvernoteClient
 
@@ -47,11 +48,15 @@ if not version_ok:
 
 note_store = client.get_note_store()
 
-# get the default notebook
-default_notebook = None
-for notebook in note_store.listNotebooks():
-  if notebook.defaultNotebook:
-    default_notebook = notebook
+# we are interested in notes tagged as a "post"
+filter = NoteStore.NoteFilter()
+filter.words = "tag:post"
 
-if not default_notebook:
-  raise "could not find the default notebook"
+# we are interested in their titles
+spec = NoteStore.NotesMetadataResultSpec()
+spec.includeTitle = True
+
+# find them notes!
+noteList = note_store.findNotesMetadata(auth_token, filter, 0, 40, spec)
+for note in noteList.notes:
+  print "%s :: %s" % (note.guid, note.title)
