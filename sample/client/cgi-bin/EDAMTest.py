@@ -26,13 +26,11 @@ def getUserShardId(authToken, userStore):
   try:
     user = userStore.getUser(authToken)
   except (Types.EDAMUserException, Types.EDAMSystemException), e:
-    print "Exception while getting user's shardId:"
-    print type(e), e
-    return None
+    raise "Exception while getting user's shardId: %s %s" % (type(e), e)
   
   if hasattr(user, 'shardId'):
     return user.shardId
-  return None
+  raise "no shardId found"
 
 
 # Real applications authenticate with Evernote using OAuth, but for the
