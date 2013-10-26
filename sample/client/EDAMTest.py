@@ -19,7 +19,7 @@ from evernote.api.client import EvernoteClient
 # purpose of exploring the API, you can get a developer token that allows
 # you to access your own Evernote account. To get a developer token, visit
 # https://sandbox.evernote.com/api/DeveloperToken.action
-auth_token = "your developer token"
+auth_token = open("dev_token", "r").read().rstrip()
 
 if auth_token == "your developer token":
     print "Please fill in your developer token"
@@ -60,7 +60,7 @@ print
 # To create a new note, simply create a new Note object and fill in
 # attributes such as the note's title.
 note = Types.Note()
-note.title = "Test note from EDAMTest.py"
+note.title = "Second test note from EDAMTest.py"
 
 # To include an attachment such as an image in a note, first create a Resource
 # for the attachment. At a minimum, the Resource contains the binary attachment
