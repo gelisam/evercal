@@ -44,7 +44,7 @@ auth_token = open("dev_token", "r").read().rstrip()
 # service, change sandbox=False and replace your
 # developer token above with a token from
 # https://www.evernote.com/api/DeveloperToken.action
-client = EvernoteClient(token=auth_token, sandbox=True)
+client = EvernoteClient(token=auth_token, sandbox=False)
 
 user_store = client.get_user_store()
 
@@ -77,8 +77,8 @@ print "["
 for note in noteList.notes:
   title = note.title
   date = date.fromtimestamp(note.attributes.reminderTime / 1000)
-  url = "https://sandbox.evernote.com/Home.action?#st=p&n=%s" % note.guid
-  thumbnail = "https://sandbox.evernote.com/shard/%s/thm/note/%s" % (shardId, note.guid)
+  url = "https://www.evernote.com/Home.action?#st=p&n=%s" % note.guid
+  thumbnail = "https://www.evernote.com/shard/%s/thm/note/%s" % (shardId, note.guid)
   if first:
     first = False
   else:
