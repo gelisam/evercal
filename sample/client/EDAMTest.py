@@ -10,6 +10,7 @@
 
 import hashlib
 import binascii
+from datetime import date
 import evernote.edam.userstore.constants as UserStoreConstants
 import evernote.edam.type.ttypes as Types
 from evernote.edam.notestore import NoteStore
@@ -55,8 +56,11 @@ filter.words = "tag:post"
 # we are interested in their titles
 spec = NoteStore.NotesMetadataResultSpec()
 spec.includeTitle = True
+spec.includeAttributes = True
 
 # find them notes!
 noteList = note_store.findNotesMetadata(auth_token, filter, 0, 40, spec)
 for note in noteList.notes:
-  print "%s :: %s" % (note.guid, note.title)
+  timestamp = note.attributes.reminderTime
+  date = date.fromtimestamp(timestamp / 1000)
+  print "%s :: %s (%s)" % (note.guid, note.title, date)
