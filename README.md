@@ -7,7 +7,7 @@ This repository is still in a very rough state, and will probably stay that way.
 
 Evernote setup
 ---
-Go to you Evernote account and add a reminder date to a few notes. Also tag them with the tag "post", so that Evercal can find them. If you can also give them a short title and attach a picture, the calendar will look even better. Only one post per day!
+Go to your Evernote account and add a reminder date to a few notes. Also tag them with the tag "post", so that Evercal can find them. If you can also give them a short title and attach a picture, the calendar will look even better. Only one post per day!
 
 Python Setup
 ---
