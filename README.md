@@ -17,6 +17,7 @@ Python Setup
 ---
 This project requires python 2.x, it won't work with Python 3. Tested on 2.6.1.
 
+1. Install the python library [oauth2](https://pypi.python.org/pypi/oauth2/) and its dependency, [httplib2](https://pypi.python.org/pypi/httplib2).
 1. Get an [Evernote developer token](http://dev.evernote.com/doc/articles/authentication.php#devtoken), which you should put in the file `sample/client/dev_token`. This token is secret, don't share it!
 1. Navigate to `sample/client` and run `export PYTHONPATH=../../lib; python -m CGIHTTPServer` inside a shell.
 1. Point your browser to [`localhost:8000/evercal`](http://localhost:8000/evercal) and wait a few seconds.
