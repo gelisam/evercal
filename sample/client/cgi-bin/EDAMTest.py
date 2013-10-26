@@ -75,6 +75,7 @@ print "Content-type: application/json\r\n"
 first = True
 print "["
 for note in noteList.notes:
+  title = note.title
   date = date.fromtimestamp(note.attributes.reminderTime / 1000)
   url = "https://sandbox.evernote.com/Home.action?#st=p&n=%s" % note.guid
   thumbnail = "https://sandbox.evernote.com/shard/%s/thm/note/%s" % (shardId, note.guid)
@@ -82,5 +83,5 @@ for note in noteList.notes:
     first = False
   else:
     print ','
-  print '{"date": "%s", "url": "%s", "thumbnail": "%s"}' % (date, url, thumbnail)
+  print '{"title": "%s", "date": "%s", "url": "%s", "image": "%s"}' % (title, date, url, thumbnail)
 print "]"
