@@ -472,7 +472,7 @@ var Calendar = new Class({
             if (image) {
               new Element('div', {
                 'html': title
-              }).store('date', eStart.getDate()).addClass('title').inject($('day' + eStart.getDate()).getChildren('div')[0]);
+              }).store('date', eStart.getDate()).addClass('title').inject(eventDiv);
             }
             if (this.options.view != 'month') // the month view only shows a portion of the event description
               eventDiv.addClass('fullEvent');

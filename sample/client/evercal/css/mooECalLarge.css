@@ -3,7 +3,7 @@
 */
 
 /* Calendar Header/Controls */
-.mooECal{margin:0; padding:0; width:800px; height:500px; border:1px solid #999; border-left:none; text-align:center; border-collapse:separate; font-family:Arial, Helvetica, sans-serif;}
+.mooECal{margin:0; padding:0; width:1240px; height:500px; border:1px solid #999; border-left:none; text-align:center; border-collapse:separate; font-family:Arial, Helvetica, sans-serif;}
 .mooECal li, .mooECal ul{list-style:none; display:inline; margin:0; padding:0;}
 .thControls, .ulControls{text-align:left;}
 .thControls{ border-bottom:1px solid #999; border-left:1px solid #999; height:35px;}
@@ -29,9 +29,10 @@
 .mooECal td.past{background-color:#EEE;} /* color for past days */
 .mooECal td.today{font-weight: bold;} /* color for today */
 .mooECal td span{color:#333; font-size:0.8em; display: block; height: 0px; width: 0px; overflow: visible;} /* day of the month (1-31) */
-.monthDay div{height:87px; overflow:hidden; cursor:default;}
-.monthDay div div.thumbnail{height:75px; overflow:hidden; cursor:default;}
-.monthDay div div.title{height:12px; overflow:hidden; cursor:default;}
+.monthDay div{height:184px; overflow:hidden; cursor:default;}
+.monthDay div div.thumbnail{width: 87px; height:90px; overflow:hidden; cursor:default; display: inline-block;}
+.monthDay div div.thumbnail img{width: 75px; height:75px;}
+.monthDay div div.thumbnail div.title{height:14px; overflow:hidden; cursor:default;}
 .mooECal td div div{text-align: center; font-size:10px; color:#009; overflow:hidden; cursor:default;}
 .mooECal td div div img{max-width:100%; max-height: 100%;}
 .mooECal td a{font-size:10px; color:#009; text-decoration:underline;}
